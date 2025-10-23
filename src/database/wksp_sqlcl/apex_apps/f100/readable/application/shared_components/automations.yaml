@@ -1,0 +1,37 @@
+---
+- # ====== Automation: my_test_automation ======================
+  id: 10768578747557759
+  identification: 
+    name: my_test_automation
+    static-id: my-test-automation
+
+  execution: 
+    type: Scheduled
+    schedule-expression: FREQ=HOURLY;INTERVAL=1;BYMINUTE=0
+    schedule-status: Disabled
+    actions-initiated-on: Always
+
+  action-execution: 
+    action-error-handling: Ignore
+
+  actions: 
+  - # ====== Action: New Action ==================================
+    id: 10768884935557780
+    identification: 
+      name: New Action
+      type: Execute Code
+
+    source: 
+      location: Local Database
+      language: PL/SQL
+      pl/sql-code: |
+        begin
+            null;
+        end;
+
+    execution: 
+      sequence: 10
+
+    error: 
+      stop-execution-on-error: true
+
